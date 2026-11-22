@@ -351,3 +351,10 @@ strong{color:#fff}
   .compare-row{grid-template-columns:minmax(0,400px) 1fr}
   .wip{grid-template-columns:repeat(4,1fr)}
 }
+
+/* One More Game: justified rows, every frame shown uncropped */
+.bento{display:flex;flex-direction:column;gap:14px;grid-auto-rows:auto}
+.b-row{display:flex;gap:14px}
+.b-item{flex:var(--r) 1 0;min-width:0;grid-column:auto;grid-row:auto}
+.b-item img{width:100%;height:auto;aspect-ratio:var(--r);object-fit:contain}
+@media (max-width:640px){.bento{flex-direction:row;flex-wrap:wrap;gap:10px}.b-row{display:contents}.b-item{flex:var(--r) 1 calc(var(--r) * 120px)}}
