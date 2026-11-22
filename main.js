@@ -175,3 +175,9 @@
     }, { threshold: .4 }).observe(cd);
   }
 })();
+
+// One More Game strip arrows
+(()=>{const t=document.getElementById('omgtrack');if(!t)return;
+const step=d=>{const w=t.querySelector('.b-item');t.scrollBy({left:d*((w?w.offsetWidth:300)+14),behavior:'smooth'})};
+document.getElementById('omgprev').addEventListener('click',()=>step(-1));
+document.getElementById('omgnext').addEventListener('click',()=>step(1));})();
