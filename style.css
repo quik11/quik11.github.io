@@ -336,3 +336,18 @@ strong{color:#fff}
 @media (max-width:960px){.compare-row{grid-template-columns:1fr}}
 @media (max-width:640px){.wip{grid-template-columns:1fr}}
 .inv-note{margin-top:12px;opacity:.8;font-size:1.1em}
+
+/* ===== Compact sizing for Stage 2 onward (fit one screen) ===== */
+.cast{max-width:760px;margin-left:auto;margin-right:auto}
+.cinema{max-width:640px;margin-left:auto;margin-right:auto}
+.raw{grid-template-columns:repeat(2,minmax(0,300px));justify-content:center}
+.sketch-big{max-width:680px;margin-left:auto;margin-right:auto}
+@media (min-width:961px){
+  .phone{width:250px;border-radius:38px;padding:10px}
+  .phone .notch{top:16px;width:76px;height:22px}
+  .channel{grid-template-columns:300px 1fr}
+  .bento{grid-auto-rows:200px}
+  .masonry{columns:5}
+  .compare-row{grid-template-columns:minmax(0,400px) 1fr}
+  .wip{grid-template-columns:repeat(4,1fr)}
+}
