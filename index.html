@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tran Quang Khanh · 2D Game Artist</title>
+<meta name="description" content="Portfolio of Tran Quang Khanh, a 2D game artist: pixel art, sprite animation and chibi characters.">
+<meta property="og:title" content="Tran Quang Khanh · 2D Game Artist">
+<meta property="og:description" content="Pixel art, sprite animation and chibi characters. Open to 2D game artist internships.">
+<meta property="og:image" content="assets/gameplay_poster.jpg">
+<link rel="icon" href="assets/neu/run_sheet.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ TOP HUD / NAV ============ -->
+<header class="hud" id="top">
+  <a class="logo" href="#top" aria-label="Back to top">KHANH<span>.</span>TRAN</a>
+  <nav>
+    <a href="#stage1">Game</a>
+    <a href="#stage2">@anh.cayy</a>
+    <a href="#process">Process</a>
+    <a href="#about">About</a>
+    <a href="#contact" class="nav-cta">Contact</a>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" aria-label="Introduction">
+  <div class="sky"></div>
+  <div class="layer clouds"></div>
+  <div class="layer trees far"></div>
+  <div class="layer trees mid"></div>
+  <div class="layer trees near"></div>
+
+  <div class="hero-hud left" aria-hidden="true">
+    <div class="bar hp"><i style="width:100%"></i></div>
+    <span class="hp-label">HP 100 / 100</span>
+  </div>
+  <div class="hero-hud right" aria-hidden="true">
+    <span class="cyan">Sprites: 11/11</span>
+    <span class="gold">Open to work</span>
+    <div class="bar xp"><i style="width:92%"></i></div>
+  </div>
+
+  <div class="hero-copy">
+    <p class="kicker">Portfolio · 2026</p>
+    <h1>TRAN QUANG<br>KHANH</h1>
+    <p class="role">2D GAME ARTIST</p>
+    <p class="tagline">Pixel art · Sprite animation · Chibi characters</p>
+    <a class="start" href="#stage1">▶ PRESS START</a>
+  </div>
+
+  <div class="ground">
+    <div class="actors">
+      <img class="px actor hero-neu" src="assets/neu/idle.gif" alt="The NEU student character, idle animation" data-scale="2">
+      <img class="px actor hero-pillow" src="assets/pillow/idle.gif" alt="The pillow demon enemy, tied up" data-scale="1.8">
+    </div>
+  </div>
+</section>
+
+<!-- ============ STAGE 01 ============ -->
+<section class="stage" id="stage1">
+  <div class="wrap">
+    <header class="stage-head">
+      <span class="stage-no">STAGE 01</span>
+      <h2>NEU Student</h2>
+      <p class="sub">2D pixel platformer · Graduation thesis · Unity</p>
+    </header>
+
+    <div class="intro-grid">
+      <figure class="screen">
+        <video id="gameplay" src="assets/gameplay.mp4" poster="assets/gameplay_poster.jpg" controls muted loop playsinline preload="metadata"></video>
+        <figcaption>Gameplay capture · ~1 min</figcaption>
+      </figure>
+      <div class="intro-text">
+        <p>A 2D pixel-art platformer I built <strong>solo</strong> in Unity as my IT graduation thesis at the National Economics University (NEU), Hanoi.</p>
+        <p>I drew every sprite by hand in Piskel, frame by frame: the hero, a NEU student in the university uniform, and a pillow demon enemy. Then I set up all animations in-engine.</p>
+        <dl class="facts">
+          <div><dt>Role</dt><dd>Solo: character design, sprite animation, Unity implementation</dd></div>
+          <div><dt>Tools</dt><dd><span class="chip">Piskel</span><span class="chip">Unity</span></dd></div>
+          <div><dt>Focus</dt><dd>Character design and frame-by-frame animation</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <!-- Sprite sheet + live player -->
+    <div class="sheet-block">
+      <h3 class="block-title">Run cycle · sprite sheet</h3>
+      <div class="sheet-row">
+        <div class="sheet-scroll">
+          <img class="px sheet" src="assets/neu/run_sheet.png" alt="Sprite sheet of the run cycle, 11 frames">
+          <div class="frame-marks" aria-hidden="true"></div>
+        </div>
+        <div class="player">
+          <div class="player-view"><div class="runner" id="runner"></div></div>
+          <div class="player-ctrl">
+            <button type="button" id="pp" aria-label="Pause">❚❚</button>
+            <button type="button" id="step" aria-label="Next frame">▶|</button>
+            <button type="button" class="spd" data-fps="6">0.5×</button>
+            <button type="button" class="spd on" data-fps="12">1×</button>
+            <button type="button" class="spd" data-fps="24">2×</button>
+          </div>
+          <p class="frame-no">Frame <span id="fno">1</span> / 11</p>
+        </div>
+      </div>
+      <p class="hint">Pause and step through the cycle frame by frame.</p>
+    </div>
+
+    <!-- Move set -->
+    <h3 class="block-title">Hero move set</h3>
+    <div class="moves">
+      <figure class="card"><div class="stagebox"><img class="px fit" src="assets/neu/idle.gif" alt="Idle animation"></div><figcaption><b>IDLE</b><span>9 frames · loop</span></figcaption></figure>
+      <figure class="card"><div class="stagebox"><img class="px fit" src="assets/neu/run.gif" alt="Run animation"></div><figcaption><b>RUN</b><span>11 frames · loop</span></figcaption></figure>
+      <figure class="card"><div class="stagebox"><img class="px fit" src="assets/neu/roll.gif" alt="Roll animation"></div><figcaption><b>ROLL</b><span>7 frames</span></figcaption></figure>
+      <figure class="card"><div class="stagebox"><img class="px fit" src="assets/neu/shoot.gif" alt="Shoot animation"></div><figcaption><b>SHOOT</b><span>5 frames</span></figcaption></figure>
+      <figure class="card wide"><div class="stagebox"><img class="px fit" src="assets/neu/combo.gif" alt="Melee combo animation"></div><figcaption><b>COMBO</b><span>26 frames</span></figcaption></figure>
+      <figure class="card"><div class="stagebox"><img class="px fit" src="assets/neu/heavy.gif" alt="Heavy attack animation"></div><figcaption><b>HEAVY ATTACK</b><span>24 frames</span></figcaption></figure>
+      <figure class="card"><div class="stagebox"><img class="px fit" src="assets/neu/death.gif" alt="Death animation"></div><figcaption><b>DEATH</b><span>8 frames</span></figcaption></figure>
+    </div>
+
+    <!-- Enemy -->
+    <h3 class="block-title enemy-title">Enemy · Pillow demon</h3>
+    <p class="block-note">A sleep-themed enemy for a student hero.</p>
+    <div class="moves enemy">
+      <figure class="card"><div class="stagebox"><img class="px fit" src="assets/pillow/idle.gif" alt="Pillow demon tied up"></div><figcaption><b>TIED UP</b><span>6 frames · loop</span></figcaption></figure>
+      <figure class="card"><div class="stagebox"><img class="px fit" src="assets/pillow/walk.gif" alt="Pillow demon walk"></div><figcaption><b>WALK</b><span>5 frames · loop</span></figcaption></figure>
+      <figure class="card"><div class="stagebox"><img class="px fit" src="assets/pillow/attack.gif" alt="Pillow demon attack"></div><figcaption><b>ATTACK</b><span>14 frames</span></figcaption></figure>
+      <figure class="card"><div class="stagebox"><img class="px fit" src="assets/pillow/death.gif" alt="Pillow demon death"></div><figcaption><b>DEATH</b><span>7 frames</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STAGE 02 ============ -->
+<section class="stage alt" id="stage2">
+  <div class="wrap">
+    <header class="stage-head">
+      <span class="stage-no">STAGE 02</span>
+      <h2>@anh.cayy</h2>
+      <p class="sub">Animated comic reels · Instagram &amp; TikTok</p>
+    </header>
+
+    <figure class="cast">
+      <img src="assets/anhcay/main-couple.jpg" alt="The two lead characters of @anh.cayy">
+      <figcaption>
+        <span class="cast-tag">MEET THE CAST</span>
+        <p>The two leads of every @anh.cayy story: a laid-back boyfriend and his expressive girlfriend. Same characters, hundreds of situations.</p>
+      </figcaption>
+    </figure>
+
+    <div class="channel">
+      <div class="phone-wrap">
+        <div class="phone" id="phone">
+          <div class="notch"></div>
+          <div class="screen-track" id="track">
+            <figure class="slide"><img src="assets/phone/1-ig-profile.jpg" alt="Instagram profile of @anh.cayy"></figure>
+            <figure class="slide"><img src="assets/phone/2-ig-top-reel.jpg" alt="Top reel: 25.6M views and 2.3M likes"></figure>
+            <figure class="slide"><img src="assets/phone/3-ig-grid.jpg" alt="Instagram grid of animated reels"></figure>
+            <figure class="slide"><img src="assets/phone/4-ig-reel-863k.jpg" alt="Animated reel with 863K views"></figure>
+            <figure class="slide"><img src="assets/phone/5-ig-reel-1m.jpg" alt="Animated reel with 1.3M views"></figure>
+            <figure class="slide"><img src="assets/phone/6-tiktok-profile.jpg" alt="TikTok profile of @anh.cayy"></figure>
+          </div>
+        </div>
+        <div class="phone-ctrl">
+          <button type="button" class="pbtn" id="prev" aria-label="Previous screen">◀</button>
+          <div class="dots" id="dots"></div>
+          <button type="button" class="pbtn" id="next" aria-label="Next screen">▶</button>
+        </div>
+        <p class="phone-cap" id="pcap">Instagram profile</p>
+      </div>
+      <div class="channel-text">
+        <p>Short comic reels about student life and couples, which I draw and animate myself. Many reels pass 100K views and several have passed 1M.</p>
+        <div class="big-stat"><b>25.6M</b><span>views and <strong>2.3M likes</strong> on my top Instagram reel</span></div>
+        <div class="mini-stats">
+          <div><b>9.3K</b><span>Instagram<br>followers</span></div>
+          <div><b>669K</b><span>total likes<br>on TikTok</span></div>
+          <div><b>1M+</b><span>views on<br>several reels</span></div>
+        </div>
+        <div class="channel-links">
+          <a class="btn" href="https://www.instagram.com/anh.cayy/" target="_blank" rel="noopener">Instagram ↗</a>
+          <a class="btn" href="https://www.tiktok.com/@anh.cayy" target="_blank" rel="noopener">TikTok ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Placeholders: drop files with these names into assets/anhcay/ and they appear automatically -->
+    <h3 class="block-title">Cinema series</h3>
+    <p class="block-note">One cinema date, many costumes: the same pair redrawn as different characters while keeping their poses and personalities.</p>
+    <div class="cinema">
+      <div class="cin-view">
+        <div class="cin-track" id="cintrack"><figure class="cslide"><img src="assets/anhcay/cinema/cinema-1.jpg" alt="Cinema series, part 1"></figure><figure class="cslide"><img src="assets/anhcay/cinema/cinema-2.jpg" alt="Cinema series, part 2"></figure><figure class="cslide"><img src="assets/anhcay/cinema/cinema-3.jpg" alt="Cinema series, part 3"></figure><figure class="cslide"><img src="assets/anhcay/cinema/cinema-4.jpg" alt="Cinema series, part 4"></figure><figure class="cslide"><img src="assets/anhcay/cinema/cinema-5.jpg" alt="Cinema series, part 5"></figure><figure class="cslide"><img src="assets/anhcay/cinema/cinema-6.jpg" alt="Cinema series, part 6"></figure><figure class="cslide"><img src="assets/anhcay/cinema/cinema-7.jpg" alt="Cinema series, part 7"></figure></div>
+        <button type="button" class="pbtn cin-prev" id="cinprev" aria-label="Previous">◀</button>
+        <button type="button" class="pbtn cin-next" id="cinnext" aria-label="Next">▶</button>
+        <span class="cin-count" id="cincount">1 / 7</span>
+      </div>
+      <div class="cin-thumbs" id="cinthumbs"><button type="button" aria-label="Show part 1"><img src="assets/anhcay/cinema/cinema-1.jpg" alt=""></button><button type="button" aria-label="Show part 2"><img src="assets/anhcay/cinema/cinema-2.jpg" alt=""></button><button type="button" aria-label="Show part 3"><img src="assets/anhcay/cinema/cinema-3.jpg" alt=""></button><button type="button" aria-label="Show part 4"><img src="assets/anhcay/cinema/cinema-4.jpg" alt=""></button><button type="button" aria-label="Show part 5"><img src="assets/anhcay/cinema/cinema-5.jpg" alt=""></button><button type="button" aria-label="Show part 6"><img src="assets/anhcay/cinema/cinema-6.jpg" alt=""></button><button type="button" aria-label="Show part 7"><img src="assets/anhcay/cinema/cinema-7.jpg" alt=""></button></div>
+    </div>
+
+    <h3 class="block-title">One More Game · reel frames</h3>
+    <p class="block-note">Frames from my reel “One More Game”: gamer characters drawn over in-game backgrounds, from big facial expressions to full-body action poses.</p>
+    <div class="bento"><figure class="b-item b-wide"><img src="assets/anhcay/omg/run.jpg" alt="One More Game: Running away" loading="lazy"><figcaption>On the run</figcaption></figure><figure class="b-item b-tall"><img src="assets/anhcay/omg/grin.jpg" alt="One More Game: Grinning, hands in pockets" loading="lazy"><figcaption>Confident</figcaption></figure><figure class="b-item "><img src="assets/anhcay/omg/angry.jpg" alt="One More Game: Rage" loading="lazy"><figcaption>Rage</figcaption></figure><figure class="b-item "><img src="assets/anhcay/omg/talk.jpg" alt="One More Game: Explaining" loading="lazy"><figcaption>Explaining</figcaption></figure><figure class="b-item "><img src="assets/anhcay/omg/aim.jpg" alt="One More Game: Aiming a rifle" loading="lazy"><figcaption>Aiming</figcaption></figure><figure class="b-item b-wide"><img src="assets/anhcay/omg/knocked.jpg" alt="One More Game: Knocked down" loading="lazy"><figcaption>Knocked down</figcaption></figure></div>
+
+    <h3 class="block-title">Raw animation</h3>
+    <p class="block-note">Short clips straight from my animation files, before editing and sound.</p>
+    <div class="raw">
+      <figure class="screen"><video src="assets/anhcay/video/who-decided-that.mp4" poster="assets/anhcay/video/who-decided-that.jpg" muted loop playsinline preload="metadata" controls></video><figcaption>“Who decided that?” · 15s</figcaption></figure>
+      <figure class="screen"><video src="assets/anhcay/video/spending-for-gf.mp4" poster="assets/anhcay/video/spending-for-gf.jpg" muted loop playsinline preload="metadata" controls></video><figcaption>Spending for my girlfriend · 7s</figcaption></figure>
+    </div>
+
+    <h3 class="block-title">Illustrations</h3>
+    <p class="block-note">Characters drawn into real photos, plus a few standalone pieces.</p>
+    <div class="masonry"><figure class="m-item"><img src="assets/anhcay/art/beach.jpg" alt="At the beach" loading="lazy"><figcaption>At the beach</figcaption></figure><figure class="m-item"><img src="assets/anhcay/art/movie-night.jpg" alt="Movie night" loading="lazy"><figcaption>Movie night</figcaption></figure><figure class="m-item"><img src="assets/anhcay/art/fishing.jpg" alt="Fishing day" loading="lazy"><figcaption>Fishing day</figcaption></figure><figure class="m-item"><img src="assets/anhcay/art/water-break.jpg" alt="Water break" loading="lazy"><figcaption>Water break</figcaption></figure><figure class="m-item"><img src="assets/anhcay/art/great-wall.jpg" alt="Great Wall trip" loading="lazy"><figcaption>Great Wall trip</figcaption></figure><figure class="m-item"><img src="assets/anhcay/art/phone.jpg" alt="Showing off the channel" loading="lazy"><figcaption>Showing off the channel</figcaption></figure><figure class="m-item"><img src="assets/anhcay/art/sleeping.jpg" alt="Afternoon nap" loading="lazy"><figcaption>Afternoon nap</figcaption></figure><figure class="m-item"><img src="assets/anhcay/art/cosplay.jpg" alt="Cosplay chibis" loading="lazy"><figcaption>Cosplay chibis</figcaption></figure><figure class="m-item"><img src="assets/anhcay/art/paint.jpg" alt="Anh Cây cosplaying Saitama for Halloween" loading="lazy"><figcaption>Saitama cosplay for Halloween</figcaption></figure><figure class="m-item"><img src="assets/anhcay/art/birds.jpg" alt="Gym birds" loading="lazy"><figcaption>Gym birds</figcaption></figure></div>
+  </div>
+</section>
+
+<!-- ============ BEHIND THE SCENES ============ -->
+<section class="stage" id="process">
+  <div class="wrap">
+    <header class="stage-head">
+      <span class="stage-no">BONUS STAGE</span>
+      <h2>Behind the scenes</h2>
+      <p class="sub">Sketches, roughs and work in progress</p>
+    </header>
+
+    <div class="compare-row">
+      <div class="compare" id="compare" style="--pos:50%">
+        <img src="assets/process/bed-final.jpg" alt="Final frame from the reel" draggable="false">
+        <div class="cmp-top"><img src="assets/process/bed-sketch.jpg" alt="Sketch and line art for the same frame" draggable="false"></div>
+        <div class="cmp-handle" aria-hidden="true"><span>◀ ▶</span></div>
+        <span class="cmp-label l">SKETCH</span><span class="cmp-label r">FINAL</span>
+        <input type="range" min="0" max="100" value="50" class="cmp-range" aria-label="Drag to compare sketch and final">
+      </div>
+      <div class="compare-text">
+        <h3 class="block-title" style="margin-top:0">Sketch → final</h3>
+        <p>Drag the handle to compare. I start with a loose rough over the background photo (bottom-left), clean it into line art, then add flat colour so the character sits naturally in the scene.</p>
+        <p class="muted">Frame from the reel with 863K views on Instagram.</p>
+      </div>
+    </div>
+
+    <h3 class="block-title">Character exploration</h3>
+    <p class="block-note">Pose and expression sketches for the “One More Game” cast before inking.</p>
+    <figure class="sketch-big"><img src="assets/process/character-sketches.jpg" alt="Four pose sketches of the One More Game characters" loading="lazy"></figure>
+
+    <h3 class="block-title">Roughs &amp; work in progress</h3>
+    <div class="wip">
+      <figure class="m-item"><img src="assets/process/rough-classroom-1.jpg" alt="Rough blocking of a student asleep at a classroom desk" loading="lazy"><figcaption>Rough blocking · classroom</figcaption></figure>
+      <figure class="m-item"><img src="assets/process/rough-classroom-2.jpg" alt="Rough staging of two characters in a lecture hall" loading="lazy"><figcaption>Staging · lecture hall</figcaption></figure>
+      <figure class="m-item"><img src="assets/process/wip-one-more-game-1.jpg" alt="Work in progress: foreground character inked, background character still sketched" loading="lazy"><figcaption>WIP · foreground inked, background sketched</figcaption></figure>
+      <figure class="m-item"><img src="assets/process/wip-one-more-game-2.jpg" alt="Work in progress: character sketch over a game background" loading="lazy"><figcaption>WIP · character sketch over game background</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT / CHARACTER SHEET ============ -->
+<section class="stage" id="about">
+  <div class="wrap">
+    <header class="stage-head">
+      <span class="stage-no">PLAYER INFO</span>
+      <h2>About me</h2>
+    </header>
+    <div class="sheet-card">
+      <div class="portrait">
+        <img class="px fit" src="assets/neu/idle.gif" alt="" data-photo="assets/khanh.jpg">
+      </div>
+      <div class="info">
+        <p class="lead">A self-taught 2D artist with an IT background, focused on game art. I care about characters that feel alive: clear shapes, readable poses and timing that sells the motion.</p>
+        <div class="cols">
+          <div>
+            <h4>Class</h4>
+            <p>2D Game Artist · Intern</p>
+            <h4>Education</h4>
+            <p>National Economics University, Hanoi<br>B.Sc. Information Technology · 2023–2026<br>GPA 3.5 / 4.0 · IELTS 7.5</p>
+            <h4>Next quest</h4>
+            <p>Ready to learn any tool or skill the team needs: Photoshop, Spine, 3D and more</p>
+          </div>
+          <div>
+            <h4>Abilities</h4>
+            <ul class="abilities">
+              <li>2D animation</li>
+              <li>Pixel art &amp; sprite sheets</li>
+              <li>Chibi &amp; cartoon characters</li>
+              <li>3D form &amp; perspective in 2D drawing</li>
+              <li>Short-form comic animation</li>
+            </ul>
+          </div>
+        </div>
+        <h4>Inventory</h4>
+        <ul class="inventory">
+          <li><b>Krita</b><span>painting, line art, frame animation</span></li>
+          <li><b>Piskel</b><span>pixel sprites &amp; sprite sheets</span></li>
+          <li><b>Unity</b><span>2D animation set-up in-engine</span></li>
+          <li><b>CapCut</b><span>editing animated reels</span></li>
+        </ul>
+        <p class="inv-note"><i>Self-taught on every tool above. The craft carries over, so switching software is quick.</i></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="continue" id="contact">
+  <p class="cont-title">CONTINUE?</p>
+  <p class="countdown" aria-hidden="true">9</p>
+  <p class="cont-sub">Open to 2D game artist internships · available full-time from December 2026</p>
+  <div class="cont-links">
+    <a class="btn big" href="mailto:tranquangkhanh2005@gmail.com">▶ tranquangkhanh2005@gmail.com</a>
+    <a class="btn" href="tel:+84353881005">+84 353 881 005</a>
+    <a class="btn" href="https://www.instagram.com/anh.cayy/" target="_blank" rel="noopener">Instagram</a>
+    <a class="btn" href="https://www.tiktok.com/@anh.cayy" target="_blank" rel="noopener">TikTok</a>
+  </div>
+  <img class="px actor end-runner" src="assets/neu/run.gif" alt="" aria-hidden="true">
+</section>
+
+<footer class="foot">© 2026 Tran Quang Khanh · All artwork by the artist</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lb" hidden>
+  <button type="button" class="lb-close" aria-label="Close">✕</button>
+  <div class="lb-stage"><img class="px" id="lbimg" alt=""></div>
+  <p class="lb-cap" id="lbcap"></p>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
