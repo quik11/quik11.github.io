@@ -370,3 +370,6 @@ strong{color:#fff}
   .cast-tag{font-size:8px;padding:4px 6px;margin-bottom:6px}
   .cast p{font-size:11px;line-height:1.4}
 }
+
+/* Raw animation: three clips side by side on desktop */
+@media (min-width:961px){.raw{grid-template-columns:repeat(3,minmax(0,280px));align-items:start}}
