@@ -363,3 +363,10 @@ strong{color:#fff}
 .omg-hint{font:20px var(--vt);color:var(--muted);margin:8px 0 0}
 @media (max-width:960px){.b-item{height:300px}.omg-prev{left:6px}.omg-next{right:6px}}
 @media (max-width:640px){.b-item{height:230px}.bento{gap:10px}}
+
+/* Meet the cast: smaller caption tucked into the top-left corner */
+@media (min-width:641px){
+  .cast figcaption{left:16px;top:16px;bottom:auto;max-width:230px;padding:8px 10px;box-shadow:0 0 0 3px var(--gold)}
+  .cast-tag{font-size:8px;padding:4px 6px;margin-bottom:6px}
+  .cast p{font-size:11px;line-height:1.4}
+}
